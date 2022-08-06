@@ -69,7 +69,7 @@ namespace Wirehome.Core.Hardware.MQTT
             try
             {
                 var options = new MqttClientOptionsBuilder().WithTcpServer(server, port).WithCredentials(username, password).WithClientId(clientId)
-                    .WithTimeout(TimeSpan.FromMilliseconds(timeout)).WithTls(new MqttClientOptionsBuilderTlsParameters
+                    .WithCommunicationTimeout(TimeSpan.FromMilliseconds(timeout)).WithTls(new MqttClientOptionsBuilderTlsParameters
                     {
                         UseTls = tls
                     }).Build();

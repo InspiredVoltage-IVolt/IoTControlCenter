@@ -2,6 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
+        <UserSecretsId>c9133a0c-09ab-47ef-b67f-779259888316</UserSecretsId>
+        <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -9,22 +11,24 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Remove="SampleConfiguration\Identities\user%2540wirehome.com\**"/>
-        <Compile Remove="wwwroot\semantic-ui\components\**"/>
-        <Content Remove="SampleConfiguration\Identities\user%2540wirehome.com\**"/>
-        <Content Remove="wwwroot\semantic-ui\components\**"/>
-        <EmbeddedResource Remove="SampleConfiguration\Identities\user%2540wirehome.com\**"/>
-        <EmbeddedResource Remove="wwwroot\semantic-ui\components\**"/>
-        <None Remove="SampleConfiguration\Identities\user%2540wirehome.com\**"/>
-        <None Remove="wwwroot\semantic-ui\components\**"/>
+        <Compile Remove="SampleConfiguration\Identities\user%2540wirehome.com\**" />
+        <Compile Remove="wwwroot\semantic-ui\components\**" />
+        <Content Remove="SampleConfiguration\Identities\user%2540wirehome.com\**" />
+        <Content Remove="wwwroot\semantic-ui\components\**" />
+        <EmbeddedResource Remove="SampleConfiguration\Identities\user%2540wirehome.com\**" />
+        <EmbeddedResource Remove="wwwroot\semantic-ui\components\**" />
+        <None Remove="SampleConfiguration\Identities\user%2540wirehome.com\**" />
+        <None Remove="wwwroot\semantic-ui\components\**" />
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="SampleConfiguration\Identities\user%40wirehome.com\Configuration.json"/>
+        <Content Include="SampleConfiguration\Identities\user%40wirehome.com\Configuration.json">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="SampleConfiguration\Identities\user%40wirehome.com\Readme.txt"/>
+        <None Include="SampleConfiguration\Identities\user%40wirehome.com\Readme.txt" />
         <None Include="wwwroot\app\icon.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
@@ -91,21 +95,35 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.Web" Version="2.20.0"/>
-        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.2"/>
+        <PackageReference Include="Microsoft.ApplicationInsights.Web" Version="2.20.0" />
+        <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.2" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Wirehome.Core\Wirehome.Core.csproj"/>
+        <ProjectReference Include="..\Wirehome.Core\Wirehome.Core.csproj" />
     </ItemGroup>
 
     <ItemGroup>
+        <Content Update="Resources\Security\markalicz@gmail.com\Configuration.json">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
         <Content Update="wwwroot\app\icon.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
         <Content Update="wwwroot\app\touch-icon.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="wwwroot\data\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Resources\Security\info.dat">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>

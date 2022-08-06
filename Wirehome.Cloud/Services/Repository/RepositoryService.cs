@@ -23,13 +23,30 @@ public class RepositoryService
     {
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
-        if (Debugger.IsAttached)
+        string _localPath = AppDomain.CurrentDomain.BaseDirectory;
+
+        if (File.Exists(_localPath + "Resources\\Security\\info.dat"))
         {
-            _rootPath = Path.Combine(Environment.ExpandEnvironmentVariables("%APPDATA%"), "Wirehome.Cloud", "Identities");
+            
+            if (File.Exists(File.ReadAllText(_rootPath)))
+            {
+                _rootPath = File.ReadAllText(_rootPath);
+            }
+            else
+            {
+                _rootPath = _localPath + "Resources\\Security\\";
+            }
         }
         else
         {
-            _rootPath = "D:/home/data/Wirehome.Cloud/Identities";
+            if (Debugger.IsAttached)
+            {
+                _rootPath = Path.Combine(Environment.ExpandEnvironmentVariables("%APPDATA%"), "Wirehome.Cloud", "Identities");
+            }
+            else
+            {
+                _rootPath = "C:\\act\\IoTControlCenter\\";
+            }
         }
     }
 

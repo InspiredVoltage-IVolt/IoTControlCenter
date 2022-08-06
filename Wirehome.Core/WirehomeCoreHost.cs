@@ -16,7 +16,8 @@ public static class WirehomeCoreHost
         using (var host = Host.CreateDefaultBuilder(arguments).ConfigureWebHostDefaults(webBuilder =>
                {
                    webBuilder.UseStartup<Startup>();
-                   webBuilder.UseKestrel(o => o.ListenAnyIP(80));
+                   webBuilder.UseKestrel(o => o.ListenAnyIP(8080));
+
                    webBuilder.ConfigureServices(s =>
                    {
                        s.AddSingleton(new SystemLaunchArguments(arguments));

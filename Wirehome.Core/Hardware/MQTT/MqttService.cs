@@ -122,7 +122,7 @@ namespace Wirehome.Core.Hardware.MQTT
                 Retain = parameters.Retain
             };
 
-            _mqttServer.InjectApplicationMessage(new InjectedMqttApplicationMessage(message)).GetAwaiter().GetResult();
+            _mqttServer.InjectApplicationMessage(new MqttInjectedApplicationMessage(message)).GetAwaiter().GetResult();
             
             _outboundCounter.Increment();
         }

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Wirehome.Core.Hosts.Console": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
